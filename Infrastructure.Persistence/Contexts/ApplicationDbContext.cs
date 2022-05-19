@@ -31,6 +31,16 @@ namespace Infrastructure.Persistence.Contexts
         public DbSet<latlongreportoutput> latlongreportoutput { get; set; }
         public DbSet<regionmast> regionmast { get; set; }
         public DbSet<locationmast> locationmast { get; set; }
+        public DbSet<hublocationmast> hublocationmast { get; set; }
+        public DbSet<customermaster> customermaster { get; set; }
+        public DbSet<PartnerBankRates> PartnerBankRates { get; set; }
+        public DbSet<ncmreportoutput> ncmreportoutput { get; set; }
+        public DbSet<ncmreportoutputsum> ncmreportoutputsum { get; set; }
+        public DbSet<CustomerBranchMaster> CustomerBranchMaster { get; set; }
+        public DbSet<ClientCustMaster> ClientCustMaster { get; set; }
+        public DbSet<clientcustbankdetails> clientcustbankdetails { get; set; }
+
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             foreach (var entry in ChangeTracker.Entries<AuditableBaseEntity>())
@@ -58,6 +68,9 @@ namespace Infrastructure.Persistence.Contexts
             {
                 property.SetColumnType("decimal(18,6)");
             }
+
+            builder.Entity<CustomerBranchMaster>().HasKey(ba => new { ba.customercode, ba.customerbranchcode });
+
             base.OnModelCreating(builder);
         }
     }

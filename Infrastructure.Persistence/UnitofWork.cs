@@ -19,6 +19,7 @@ namespace Infrastructure.Persistence
 
         public IProductRepositoryAsync ProductRepositoryAsync => new ProductRepositoryAsync(_dbContext);
         public ILatlongRepository LatLongRepositoryAysnc => new LatLongRepositoryAysnc(_dbContext);
+        public INcmRepositoryAysnc NcmRepositoryAysnc => new NcmRepositoryAysnc(_dbContext);
         public async Task<bool> Complete()
         {
             return await _dbContext.SaveChangesAsync() > 0;

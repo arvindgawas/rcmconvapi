@@ -112,6 +112,9 @@ namespace Infrastructure.Persistence.Repositories
         }
 
 
+
+
+
         public async Task<ddllistreport> getddlistreport(string region)
         {
             ddllistreport ddl = new ddllistreport();

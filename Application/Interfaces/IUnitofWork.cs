@@ -10,6 +10,7 @@ namespace Application.Interfaces
     {
         IProductRepositoryAsync ProductRepositoryAsync { get; }
         ILatlongRepository LatLongRepositoryAysnc { get; }
+        INcmRepositoryAysnc NcmRepositoryAysnc { get; }
         Task<bool> Complete();
         bool HasChanges();
     }
